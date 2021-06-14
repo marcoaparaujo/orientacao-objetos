@@ -1,6 +1,6 @@
 package funcionario;
 
-public class FuncionarioHorista {
+public class FuncionarioHorista extends Funcionario {
 
     private float valorHora;
     private int numDias;
@@ -28,5 +28,9 @@ public class FuncionarioHorista {
 
     public void setNumHorasDia(int numHorasDia) {
         this.numHorasDia = numHorasDia;
+    }
+
+    public float calcularSalario() {
+        return this.numDias * this.numHorasDia * this.valorHora;
     }
 }

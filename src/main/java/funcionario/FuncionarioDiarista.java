@@ -1,6 +1,6 @@
 package funcionario;
 
-public class FuncionarioDiarista {
+public class FuncionarioDiarista extends Funcionario {
 
     private float valorDia;
     private int numDias;
@@ -19,5 +19,9 @@ public class FuncionarioDiarista {
 
     public void setNumDias(int numDias) {
         this.numDias = numDias;
+    }
+
+    public float calcularSalario() {
+        return this.numDias * this.valorDia;
     }
 }

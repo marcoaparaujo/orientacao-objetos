@@ -16,7 +16,7 @@ class FuncionarioMensalistaTest {
     @Test
     void deveCalcularSalario() {
         FuncionarioMensalista funcionarioMensalista = new FuncionarioMensalista();
-        funcionarioMensalista.setValorMes(140000.0f);
-        assertEquals(140000.0f, funcionarioMensalista.calcularSalario());
+        funcionarioMensalista.setValorMes(14000.0f);
+        assertEquals(14000.0f, funcionarioMensalista.calcularSalario());
     }
 }
