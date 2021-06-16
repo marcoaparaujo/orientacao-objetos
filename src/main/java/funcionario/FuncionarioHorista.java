@@ -10,8 +10,8 @@ public class FuncionarioHorista extends Funcionario {
         return valorHora;
     }
 
-    public void setValorHora(float valorHora) {
-        this.valorHora = valorHora;
+    public void setValorHora(float valor) {
+        this.valorHora = valor;
     }
 
     public int getNumDias() {
@@ -30,7 +30,8 @@ public class FuncionarioHorista extends Funcionario {
         this.numHorasDia = numHorasDia;
     }
 
+    @Override
     public float calcularSalario() {
-        return this.numDias * this.numHorasDia * this.valorHora;
+        return (this.numDias * this.numHorasDia * this.valorHora) + this.valorFixo;
     }
 }
