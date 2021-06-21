@@ -14,7 +14,7 @@ public class FuncionarioMensalista extends Funcionario {
 
     @Override
     public float calcularSalario() {
-        return this.valorMes + this.valorFixo;
+        return this.valorMes;
     }
 
 }

@@ -32,6 +32,6 @@ public class FuncionarioHorista extends Funcionario {
 
     @Override
     public float calcularSalario() {
-        return (this.numDias * this.numHorasDia * this.valorHora) + this.valorFixo;
+        return this.numDias * this.numHorasDia * this.valorHora;
     }
 }

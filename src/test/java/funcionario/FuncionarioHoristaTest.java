@@ -19,7 +19,6 @@ class FuncionarioHoristaTest {
         funcionarioHorista.setValorHora(100.0f);
         funcionarioHorista.setNumDias(20);
         funcionarioHorista.setNumHorasDia(10);
-        funcionarioHorista.setValorFixo(100.0f);
-        assertEquals(20100.0f, funcionarioHorista.calcularSalario());
+        assertEquals(20000.0f, funcionarioHorista.calcularSalario());
     }
 }
