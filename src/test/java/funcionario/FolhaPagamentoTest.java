@@ -29,10 +29,6 @@ class FolhaPagamentoTest {
         lista.add(funcionario2);
         lista.add(funcionario3);
 
-        FolhaPagamento folha = new FolhaPagamento();
-
-        assertEquals(6000.0f, folha.calcularTotalFolhaPagamento(lista));
-
-
+        assertEquals(6000.0f, FolhaPagamento.calcularTotalFolhaPagamento(lista));
     }
 }
