@@ -3,7 +3,7 @@ package exercicioRelampagoSurpresa35;
 public class AlunoEnsinoMedio extends Aluno {
 
     public String verificarAprovacao() {
-        if (this.calcularMedia() >= 6) {
+        if (this.calcularMedia() >= 6.0f) {
             return "Aprovado";
         }
         else {
