@@ -41,4 +41,11 @@ public class Pessoa {
     }
 
 
+    public String getNomeCidade() {
+        if (naturalidade == null){
+            throw new IllegalArgumentException("Naturalidade obrigatoria");
+        }
+        return this.naturalidade.getNomeCidade();
+    }
+
 }

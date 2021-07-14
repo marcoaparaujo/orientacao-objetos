@@ -27,5 +27,24 @@ class EscolaTest {
         }
     }
 
+    @Test
+    public void deveRetornarEstadoEscola() {
+        Escola escola = new Escola();
+        Cidade cidade = new Cidade("Juiz de Fora", new Estado("MG"));
+        escola.setCidadeEscola(cidade);
+        assertEquals("MG", escola.retornaEstadoEscola());
+    }
+
+    @Test
+    public void deveRetornarExcecaoEscolaSemCidade() {
+        try {
+            Escola escola = new Escola();
+            escola.retornaEstadoEscola();
+            fail();
+        } catch(NullPointerException e) {
+            assertEquals("Cidade não informada!", e.getMessage());
+        }
+    }
+
 
 }

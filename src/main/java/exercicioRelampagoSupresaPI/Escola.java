@@ -2,6 +2,9 @@ package exercicioRelampagoSupresaPI;
 
 public class Escola {
     private Professor diretor;
+    private Cidade cidadeEscola;
+
+
 
     public Escola(Professor diretor) {
         if (diretor == null) {
@@ -10,6 +13,10 @@ public class Escola {
         else {
             this.diretor = diretor;
         }
+    }
+
+    public Escola() {
+
     }
 
     public Professor getDiretor() {
@@ -22,7 +29,22 @@ public class Escola {
         }
     }
 
+    public Cidade getCidadeEscola() {
+        return cidadeEscola;
+    }
+
+    public void setCidadeEscola(Cidade cidadeEscola) {
+        this.cidadeEscola = cidadeEscola;
+    }
+
     public String retornaEscolaridadeDiretor() {
         return diretor.getDescricaoEscolaridade();
+    }
+
+    public String retornaEstadoEscola() {
+        if ( this.cidadeEscola == null) {
+            throw new NullPointerException("Cidade não informada!");
+        }
+        return this.cidadeEscola.retornaEstadoCidade();
     }
 }

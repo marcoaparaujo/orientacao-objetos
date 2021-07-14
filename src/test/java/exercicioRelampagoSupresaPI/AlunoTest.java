@@ -24,6 +24,31 @@ class AlunoTest {
         }catch (IllegalArgumentException e){
             assertEquals("Naturalidade obrigatoria", e.getMessage());
         }
+    }
 
+    @Test
+    void deveRetornarEstadoQueAlunoEstuda() {
+        Aluno aluno = new Aluno(new Escolaridade("Ensino Fundamental"));
+        Curso curso = new Curso();
+        Escola escola = new Escola();
+        Cidade cidade = new Cidade("Juiz de Fora", new Estado("MG"));
+
+        escola.setCidadeEscola(cidade);
+        curso.setEscolaCurso(escola);
+        aluno.setCursoAluno(curso);
+
+        assertEquals("MG", aluno.retornaEstadoEscolaAluno());
+
+    }
+
+    @Test
+    void deveRetornarExcecaoParaAlunoSemCurso() {
+        try{
+            Aluno aluno = new Aluno(new Escolaridade("Superior"));
+            aluno.retornaEstadoEscolaAluno();
+            fail();
+        }catch (NullPointerException e){
+            assertEquals("Curso não informado!", e.getMessage());
+        }
     }
 }

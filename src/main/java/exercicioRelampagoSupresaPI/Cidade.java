@@ -30,5 +30,10 @@ public class Cidade {
         return this.estado.getNomeEstado();
     }
 
-
+    public String retornaEstadoCidade() {
+        if ( this.estado == null) {
+            throw new NullPointerException("Estado não informado!");
+        }
+        return this.estado.getNomeEstado();
+    }
 }
