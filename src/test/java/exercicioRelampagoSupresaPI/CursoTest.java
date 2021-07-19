@@ -63,5 +63,16 @@ class CursoTest {
 
     }
 
+    @Test
+    public void deveRetornarExcecaoCursoSemCoordenador() {
+        try {
+            Curso curso = new Curso();
+            curso.getNomeCoordenadorCurso();
+            fail();
+        } catch (NullPointerException e) {
+            assertEquals("Curso sem coordenador", e.getMessage());
+        }
+
+    }
 
 }

@@ -24,5 +24,9 @@ public class Aluno extends Pessoa{
         }
         return this.cursoAluno.retornaEstadoCurso();
     }
+
+    public String getNomeCoordenadorCursoAluno () {
+        return this.cursoAluno.getNomeCoordenadorCurso();
+    }
 }
 

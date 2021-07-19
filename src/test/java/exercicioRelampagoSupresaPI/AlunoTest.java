@@ -17,11 +17,11 @@ class AlunoTest {
 
     @Test
     void deveRetornarExcecaoParaAlunoSemNaturalidade() {
-        try{
+        try {
             Aluno aluno = new Aluno(new Escolaridade("Superior"));
             aluno.getEstadoCidade();
             fail();
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             assertEquals("Naturalidade obrigatoria", e.getMessage());
         }
     }
@@ -43,12 +43,24 @@ class AlunoTest {
 
     @Test
     void deveRetornarExcecaoParaAlunoSemCurso() {
-        try{
+        try {
             Aluno aluno = new Aluno(new Escolaridade("Superior"));
             aluno.retornaEstadoEscolaAluno();
             fail();
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             assertEquals("Curso não informado!", e.getMessage());
         }
+    }
+
+    @Test
+    void deveRetornarCoordenadorProfessor() {
+        Aluno aluno = new Aluno(new Escolaridade("Superior"));
+        Professor professorCoordenador = new Professor(new Escolaridade("Superior"));
+        professorCoordenador.setNome("Marco Antônio Araújo");
+        Curso curso = new Curso();
+        curso.setCoordenador(professorCoordenador);
+        aluno.setCursoAluno(curso);
+
+        assertEquals("Marco Antônio Araújo", aluno.getNomeCoordenadorCursoAluno());
     }
 }

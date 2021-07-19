@@ -4,6 +4,7 @@ public class Pessoa {
 
     private Escolaridade escolaridade;
     private Cidade naturalidade;
+    private String nome;
 
     public Pessoa(Escolaridade escolaridade) {
         this.escolaridade = escolaridade;
@@ -48,4 +49,11 @@ public class Pessoa {
         return this.naturalidade.getNomeCidade();
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }

@@ -57,4 +57,11 @@ public class Curso {
         }
         return this.escolaCurso.retornaEstadoEscola();
     }
+
+    public String getNomeCoordenadorCurso() {
+        if ( this.coordenador == null) {
+            throw new NullPointerException("Curso sem coordenador");
+        }
+        return this.coordenador.getNome();
+    }
 }
