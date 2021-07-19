@@ -64,4 +64,11 @@ public class Curso {
         }
         return this.coordenador.getNome();
     }
+
+    public String getNomeDiretor(){
+        if(this.escolaCurso == null){
+            throw new NullPointerException("Curso sem escola");
+        }
+        return this.escolaCurso.getNomeDiretor();
+    }
 }

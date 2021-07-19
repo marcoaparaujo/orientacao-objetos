@@ -75,4 +75,27 @@ class CursoTest {
 
     }
 
+    @Test
+    public void deveRetornarExcecaoCursoSemEscolaDiretor() {
+        try {
+            Curso curso = new Curso();
+            curso.getNomeDiretor();
+            fail();
+        } catch (NullPointerException e) {
+            assertEquals("Curso sem escola", e.getMessage());
+        }
+
+    }
+
+    @Test
+    public void deveRetornarNomeDiretor(){
+        Professor diretor = new Professor(new Escolaridade("Superior"));
+        diretor.setNome("José");
+        Curso curso = new Curso();
+        Escola escola = new Escola(diretor);
+        curso.setEscolaCurso(escola);
+        assertEquals("José", curso.getNomeDiretor());
+
+    }
+
 }

@@ -47,4 +47,11 @@ public class Escola {
         }
         return this.cidadeEscola.retornaEstadoCidade();
     }
+
+    public String getNomeDiretor(){
+        if(this.diretor == null){
+            throw new NullPointerException("Escola sem diretor");
+        }
+        return this.diretor.getNome();
+    }
 }

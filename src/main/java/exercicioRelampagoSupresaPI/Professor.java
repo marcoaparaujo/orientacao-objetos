@@ -22,4 +22,11 @@ public class Professor extends Pessoa {
         }
         return this.contratacao.getNomeTipoEnsino();
     }
+
+    public String getNomeDiretorEscola(){
+        if (this.contratacao == null) {
+            throw new NullPointerException("Sem contratação");
+        }
+        return this.contratacao.getNomeDiretor();
+    }
 }

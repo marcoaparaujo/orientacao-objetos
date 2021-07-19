@@ -46,5 +46,28 @@ class EscolaTest {
         }
     }
 
+    @Test
+    public void deveRetornarExcecaoEscolaSemDiretor() {
+        try {
+            Escola escola = new Escola();
+            escola.getNomeDiretor();
+            fail();
+        } catch(NullPointerException e) {
+            assertEquals("Escola sem diretor", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveRetornarNomeDiretor() {
+        Escolaridade escolaridade = new Escolaridade();
+        escolaridade.setDescricao("Superior");
+
+        Professor professor = new Professor(escolaridade);
+        professor.setNome("Maria");
+
+        Escola escola = new Escola(professor);
+
+        assertEquals("Maria", escola.getNomeDiretor());
+    }
 
 }

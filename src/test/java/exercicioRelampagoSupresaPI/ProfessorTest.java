@@ -58,4 +58,29 @@ class ProfessorTest {
         }
     }
 
+    @Test
+    void deveRetornarNomeDiretorEscola() {
+        Professor professor = new Professor(new Escolaridade("Superior"));
+        Professor diretor = new Professor(new Escolaridade("Superior"));
+        diretor.setNome("José");
+        Curso curso = new Curso();
+        Escola escola = new Escola(diretor);
+        curso.setEscolaCurso(escola);
+
+        professor.setContratacao(curso);
+
+        assertEquals("José", professor.getNomeDiretorEscola());
+    }
+
+    @Test
+    void deveRetornarExcecaoParaProfessorSemContratacaoDiretorEscola() {
+        try {
+            Professor professor = new Professor(new Escolaridade("Superior"));
+            professor.getNomeDiretorEscola();
+            fail();
+        } catch (NullPointerException e){
+            assertEquals("Sem contratação", e.getMessage());
+        }
+    }
+
 }
