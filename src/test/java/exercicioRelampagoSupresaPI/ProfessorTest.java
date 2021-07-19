@@ -83,4 +83,29 @@ class ProfessorTest {
         }
     }
 
+
+    @Test
+    void deveRetornarNomeCoordenadorCurso() {
+        Professor professor = new Professor(new Escolaridade("Superior"));
+        Professor coordenador = new Professor(new Escolaridade("Superior"));
+        coordenador.setNome("José");
+        Curso curso = new Curso();
+        curso.setCoordenador(coordenador);
+
+        professor.setContratacao(curso);
+
+        assertEquals("José", professor.getNomeCoordenadorCurso());
+    }
+
+    @Test
+    void deveRetornarExcecaoParaProfessorSemCoordenadorCurso() {
+        try {
+            Professor professor = new Professor(new Escolaridade("Superior"));
+            professor.getNomeCoordenadorCurso();
+            fail();
+        } catch (NullPointerException e){
+            assertEquals("Sem contratação", e.getMessage());
+        }
+    }
+
 }

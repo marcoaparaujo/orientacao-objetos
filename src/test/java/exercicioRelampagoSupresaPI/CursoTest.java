@@ -27,7 +27,6 @@ class CursoTest {
         escola.setCidadeEscola(cidade);
         curso.setEscolaCurso(escola);
         assertEquals("MG", curso.retornaEstadoCurso());
-
     }
 
     @Test
@@ -39,7 +38,6 @@ class CursoTest {
         } catch (NullPointerException e) {
             assertEquals("Escola não informada!", e.getMessage());
         }
-
     }
 
     @Test
@@ -60,7 +58,6 @@ class CursoTest {
         } catch (NullPointerException e) {
             assertEquals("Sem tipo de ensino", e.getMessage());
         }
-
     }
 
     @Test
@@ -72,7 +69,6 @@ class CursoTest {
         } catch (NullPointerException e) {
             assertEquals("Curso sem coordenador", e.getMessage());
         }
-
     }
 
     @Test
@@ -84,7 +80,6 @@ class CursoTest {
         } catch (NullPointerException e) {
             assertEquals("Curso sem escola", e.getMessage());
         }
-
     }
 
     @Test
@@ -95,7 +90,6 @@ class CursoTest {
         Escola escola = new Escola(diretor);
         curso.setEscolaCurso(escola);
         assertEquals("José", curso.getNomeDiretor());
-
     }
 
 }
