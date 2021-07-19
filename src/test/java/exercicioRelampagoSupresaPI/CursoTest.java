@@ -1,7 +1,6 @@
 package exercicioRelampagoSupresaPI;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestTemplate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,13 +9,22 @@ class CursoTest {
     @Test
     void deveRetonarEscolaridadeCoordenador() {
         Escolaridade escolaridade = new Escolaridade();
+        Professor professor = new Professor(escolaridade);
+        Curso curso = new Curso(professor);
         escolaridade.setDescricao("Doutorado");
 
-        Professor professor = new Professor(escolaridade);
-
-        Curso curso = new Curso(professor);
-
         assertEquals("Doutorado", curso.getDescricaoEscolaridadeCoordenador());
+    }
+
+    @Test
+    public void deveRetornarExcecaoCursoSemCoordenadorEscolaridade() {
+        try {
+            Curso curso = new Curso();
+            curso.getDescricaoEscolaridadeCoordenador();
+            fail();
+        } catch (NullPointerException e) {
+            assertEquals("Curso sem coordenador", e.getMessage());
+        }
     }
 
     @Test
@@ -24,8 +32,8 @@ class CursoTest {
         Cidade cidade = new Cidade("Juiz de Fora", new Estado("MG"));
         Curso curso = new Curso();
         Escola escola = new Escola();
-        escola.setCidadeEscola(cidade);
-        curso.setEscolaCurso(escola);
+        escola.setCidade(cidade);
+        curso.setEscola(escola);
         assertEquals("MG", curso.retornaEstadoCurso());
     }
 
@@ -36,7 +44,7 @@ class CursoTest {
             curso.retornaEstadoCurso();
             fail();
         } catch (NullPointerException e) {
-            assertEquals("Escola não informada!", e.getMessage());
+            assertEquals("Curso sem escola", e.getMessage());
         }
     }
 
@@ -56,8 +64,18 @@ class CursoTest {
             curso.getNomeTipoEnsino();
             fail();
         } catch (NullPointerException e) {
-            assertEquals("Sem tipo de ensino", e.getMessage());
+            assertEquals("Curso sem tipo de ensino", e.getMessage());
         }
+    }
+
+    @Test
+    public void deveRetornarNomeCoordenador(){
+        Curso curso = new Curso();
+        Professor coordenador = new Professor(new Escolaridade("Superior"));
+        curso.setCoordenador(coordenador);
+        coordenador.setNome("José");
+
+        assertEquals("José", curso.getNomeCoordenadorCurso());
     }
 
     @Test
@@ -72,6 +90,17 @@ class CursoTest {
     }
 
     @Test
+    public void deveRetornarNomeDiretor(){
+        Curso curso = new Curso();
+        Professor diretor = new Professor(new Escolaridade("Superior"));
+        Escola escola = new Escola(diretor);
+        diretor.setNome("José");
+        curso.setEscola(escola);
+
+        assertEquals("José", curso.getNomeDiretor());
+    }
+
+    @Test
     public void deveRetornarExcecaoCursoSemEscolaDiretor() {
         try {
             Curso curso = new Curso();
@@ -80,16 +109,6 @@ class CursoTest {
         } catch (NullPointerException e) {
             assertEquals("Curso sem escola", e.getMessage());
         }
-    }
-
-    @Test
-    public void deveRetornarNomeDiretor(){
-        Professor diretor = new Professor(new Escolaridade("Superior"));
-        diretor.setNome("José");
-        Curso curso = new Curso();
-        Escola escola = new Escola(diretor);
-        curso.setEscolaCurso(escola);
-        assertEquals("José", curso.getNomeDiretor());
     }
 
 }

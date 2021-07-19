@@ -2,18 +2,18 @@ package exercicioRelampagoSupresaPI;
 
 public class Estado {
 
-    private String nomeEstado;
+    private String nome;
 
-    public Estado (String nomeEstado) {
-        this.nomeEstado = nomeEstado;
+    public Estado (String nome) {
+        this.nome = nome;
     }
 
-    public String getNomeEstado() {
-        return nomeEstado;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeEstado(String nomeEstado) {
-        this.nomeEstado = nomeEstado;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }
 

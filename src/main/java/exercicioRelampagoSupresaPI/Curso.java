@@ -3,7 +3,7 @@ package exercicioRelampagoSupresaPI;
 public class Curso {
 
     private Professor coordenador;
-    private Escola escolaCurso;
+    private Escola escola;
     private TipoEnsino tipoEnsino;
 
     public Curso(Professor coordenador) {
@@ -11,7 +11,6 @@ public class Curso {
     }
 
     public Curso() {
-
     }
 
     public Professor getCoordenador() {
@@ -24,12 +23,12 @@ public class Curso {
         }
     }
 
-    public Escola getEscolaCurso() {
-        return escolaCurso;
+    public Escola getEscola() {
+        return escola;
     }
 
-    public void setEscolaCurso(Escola escolaCurso) {
-        this.escolaCurso = escolaCurso;
+    public void setEscola(Escola escola) {
+        this.escola = escola;
     }
 
     public TipoEnsino getTipoEnsino() {
@@ -42,33 +41,36 @@ public class Curso {
 
     public String getNomeTipoEnsino () {
         if (this.tipoEnsino == null) {
-            throw new NullPointerException("Sem tipo de ensino");
+            throw new NullPointerException("Curso sem tipo de ensino");
         }
-        return this.tipoEnsino.getNomeTipoEnsino();
+        return this.tipoEnsino.getNome();
     }
 
     public String getDescricaoEscolaridadeCoordenador() {
+        if (this.coordenador == null) {
+            throw new NullPointerException("Curso sem coordenador");
+        }
         return coordenador.getDescricaoEscolaridade();
     }
 
     public String retornaEstadoCurso() {
-        if ( this.escolaCurso == null) {
-            throw new NullPointerException("Escola não informada!");
+        if (this.escola == null) {
+            throw new NullPointerException("Curso sem escola");
         }
-        return this.escolaCurso.retornaEstadoEscola();
+        return this.escola.getEstadoEscola();
     }
 
     public String getNomeCoordenadorCurso() {
-        if ( this.coordenador == null) {
+        if (this.coordenador == null) {
             throw new NullPointerException("Curso sem coordenador");
         }
         return this.coordenador.getNome();
     }
 
     public String getNomeDiretor(){
-        if(this.escolaCurso == null){
+        if (this.escola == null){
             throw new NullPointerException("Curso sem escola");
         }
-        return this.escolaCurso.getNomeDiretor();
+        return this.escola.getNomeDiretor();
     }
 }

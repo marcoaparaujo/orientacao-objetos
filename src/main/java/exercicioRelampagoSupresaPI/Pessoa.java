@@ -2,51 +2,12 @@ package exercicioRelampagoSupresaPI;
 
 public class Pessoa {
 
+    private String nome;
     private Escolaridade escolaridade;
     private Cidade naturalidade;
-    private String nome;
 
     public Pessoa(Escolaridade escolaridade) {
         this.escolaridade = escolaridade;
-    }
-
-    public Escolaridade getEscolaridade() {
-        return escolaridade;
-    }
-
-    public void setEscolaridade(Escolaridade escolaridade) {
-        if (escolaridade != null) {
-            this.escolaridade = escolaridade;
-        }
-    }
-
-    public String getDescricaoEscolaridade() {
-        return escolaridade.getDescricao();
-    }
-
-    public Cidade getNaturalidade() {
-        return naturalidade;
-    }
-
-    public void setNaturalidade(Cidade naturalidade) {
-        if (naturalidade != null) {
-            this.naturalidade = naturalidade;
-        }
-    }
-
-    public String getEstadoCidade() {
-        if (naturalidade == null){
-            throw new IllegalArgumentException("Naturalidade obrigatoria");
-        }
-        return this.naturalidade.getNomeEstado();
-    }
-
-
-    public String getNomeCidade() {
-        if (naturalidade == null){
-            throw new IllegalArgumentException("Naturalidade obrigatoria");
-        }
-        return this.naturalidade.getNomeCidade();
     }
 
     public String getNome() {
@@ -56,4 +17,46 @@ public class Pessoa {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public Escolaridade getEscolaridade() {
+        return this.escolaridade;
+    }
+
+    public void setEscolaridade(Escolaridade escolaridade) {
+        if (this.escolaridade != null) {
+            this.escolaridade = escolaridade;
+        }
+    }
+
+    public Cidade getNaturalidade() {
+        return this.naturalidade;
+    }
+
+    public void setNaturalidade(Cidade naturalidade) {
+        if (naturalidade != null) {
+            this.naturalidade = naturalidade;
+        }
+    }
+
+    public String getDescricaoEscolaridade() {
+        if (this.escolaridade == null) {
+            throw new NullPointerException("Pessoa sem escolaridade");
+        }
+        return this.escolaridade.getDescricao();
+    }
+
+    public String getEstadoCidade() {
+        if (this.naturalidade == null){
+            throw new NullPointerException("Pessoa sem naturalidade");
+        }
+        return this.naturalidade.getNomeEstado();
+    }
+
+    public String getNomeCidade() {
+        if (this.naturalidade == null){
+            throw new NullPointerException("Pessoa sem naturalidade");
+        }
+        return this.naturalidade.getNome();
+    }
+
 }

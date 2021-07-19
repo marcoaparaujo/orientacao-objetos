@@ -8,17 +8,17 @@ class CidadeTest {
     @Test
     public void deveRetornarEstadoCidade() {
         Cidade cidade = new Cidade("Juiz de Fora", new Estado("MG"));
-        assertEquals("MG", cidade.retornaEstadoCidade());
+        assertEquals("MG", cidade.getNomeEstado());
     }
 
     @Test
     public void deveRetornarExcecaoCidadeSemEstado() {
         try {
             Cidade cidade = new Cidade("Juiz de Fora",null);
-            cidade.retornaEstadoCidade();
+            cidade.getNomeEstado();
             fail();
         } catch (NullPointerException e) {
-            assertEquals("Estado não informado!", e.getMessage());
+            assertEquals("Cidade sem estado", e.getMessage());
         }
     }
 }

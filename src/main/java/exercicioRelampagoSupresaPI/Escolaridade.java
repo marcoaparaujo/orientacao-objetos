@@ -4,7 +4,8 @@ public class Escolaridade {
 
     private String descricao;
 
-    public Escolaridade() { }
+    public Escolaridade() {
+    }
 
     public Escolaridade(String descricao) {
         this.descricao = descricao;

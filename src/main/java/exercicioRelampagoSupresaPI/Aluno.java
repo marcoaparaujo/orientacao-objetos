@@ -1,32 +1,33 @@
 package exercicioRelampagoSupresaPI;
 
-import com.sun.corba.se.spi.oa.NullServant;
-
 public class Aluno extends Pessoa{
 
-    private Curso cursoAluno;
+    private Curso curso;
 
     public Aluno (Escolaridade escolaridade){
         super (escolaridade);
     }
 
-    public Curso getCursoAluno() {
-        return cursoAluno;
+    public Curso getCurso() {
+        return this.curso;
     }
 
-    public void setCursoAluno(Curso cursoAluno) {
-        this.cursoAluno = cursoAluno;
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 
     public String retornaEstadoEscolaAluno() {
-        if (this.cursoAluno == null) {
-            throw new NullPointerException("Curso não informado!");
+        if (this.curso == null) {
+            throw new NullPointerException("Aluno sem curso");
         }
-        return this.cursoAluno.retornaEstadoCurso();
+        return this.curso.retornaEstadoCurso();
     }
 
     public String getNomeCoordenadorCursoAluno () {
-        return this.cursoAluno.getNomeCoordenadorCurso();
+        if (this.curso == null) {
+            throw new NullPointerException("Aluno sem curso");
+        }
+        return this.curso.getNomeCoordenadorCurso();
     }
 }
 

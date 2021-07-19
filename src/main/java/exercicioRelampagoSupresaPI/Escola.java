@@ -2,13 +2,11 @@ package exercicioRelampagoSupresaPI;
 
 public class Escola {
     private Professor diretor;
-    private Cidade cidadeEscola;
-
-
+    private Cidade cidade;
 
     public Escola(Professor diretor) {
         if (diretor == null) {
-            throw new IllegalArgumentException("diretor eh obrigatorio!");
+            throw new IllegalArgumentException("Escola sem diretor");
         }
         else {
             this.diretor = diretor;
@@ -16,11 +14,10 @@ public class Escola {
     }
 
     public Escola() {
-
     }
 
     public Professor getDiretor() {
-        return diretor;
+        return this.diretor;
     }
 
     public void setDiretor(Professor diretor) {
@@ -29,27 +26,30 @@ public class Escola {
         }
     }
 
-    public Cidade getCidadeEscola() {
-        return cidadeEscola;
+    public Cidade getCidade() {
+        return this.cidade;
     }
 
-    public void setCidadeEscola(Cidade cidadeEscola) {
-        this.cidadeEscola = cidadeEscola;
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
 
-    public String retornaEscolaridadeDiretor() {
-        return diretor.getDescricaoEscolaridade();
-    }
-
-    public String retornaEstadoEscola() {
-        if ( this.cidadeEscola == null) {
-            throw new NullPointerException("Cidade não informada!");
+    public String getEscolaridadeDiretor() {
+        if (this.diretor == null) {
+            throw new NullPointerException("Escola sem diretor");
         }
-        return this.cidadeEscola.retornaEstadoCidade();
+        return this.diretor.getDescricaoEscolaridade();
+    }
+
+    public String getEstadoEscola() {
+        if (this.cidade == null) {
+            throw new NullPointerException("Escola sem cidade");
+        }
+        return this.cidade.getNomeEstado();
     }
 
     public String getNomeDiretor(){
-        if(this.diretor == null){
+        if (this.diretor == null){
             throw new NullPointerException("Escola sem diretor");
         }
         return this.diretor.getNome();

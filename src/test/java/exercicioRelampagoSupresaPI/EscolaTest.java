@@ -5,17 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EscolaTest {
-    @Test
-    void deveRetornarEscolaridadeDiretor() {
-        Escolaridade escolaridade = new Escolaridade();
-        escolaridade.setDescricao("Superior");
-
-        Professor professor = new Professor(escolaridade);
-
-        Escola escola = new Escola(professor);
-
-        assertEquals("Superior", escola.retornaEscolaridadeDiretor());
-    }
 
     @Test
     void deveRetornarExcecaoEscolarSemDiretor() {
@@ -23,7 +12,28 @@ class EscolaTest {
             Escola escola = new Escola(null);
             fail();
         } catch (IllegalArgumentException e) {
-            assertEquals("diretor eh obrigatorio!", e.getMessage());
+            assertEquals("Escola sem diretor", e.getMessage());
+        }
+    }
+
+    @Test
+    void deveRetornarEscolaridadeDiretor() {
+        Escolaridade escolaridade = new Escolaridade();
+        Professor professor = new Professor(escolaridade);
+        Escola escola = new Escola(professor);
+        escolaridade.setDescricao("Superior");
+
+        assertEquals("Superior", escola.getEscolaridadeDiretor());
+    }
+
+    @Test
+    public void deveRetornarExcecaoEscolaSemDiretorEscolaridade() {
+        try {
+            Escola escola = new Escola();
+            escola.getEscolaridadeDiretor();
+            fail();
+        } catch (NullPointerException e) {
+            assertEquals("Escola sem diretor", e.getMessage());
         }
     }
 
@@ -31,19 +41,28 @@ class EscolaTest {
     public void deveRetornarEstadoEscola() {
         Escola escola = new Escola();
         Cidade cidade = new Cidade("Juiz de Fora", new Estado("MG"));
-        escola.setCidadeEscola(cidade);
-        assertEquals("MG", escola.retornaEstadoEscola());
+        escola.setCidade(cidade);
+        assertEquals("MG", escola.getEstadoEscola());
     }
 
     @Test
     public void deveRetornarExcecaoEscolaSemCidade() {
         try {
             Escola escola = new Escola();
-            escola.retornaEstadoEscola();
+            escola.getEstadoEscola();
             fail();
-        } catch(NullPointerException e) {
-            assertEquals("Cidade não informada!", e.getMessage());
+        } catch (NullPointerException e) {
+            assertEquals("Escola sem cidade", e.getMessage());
         }
+    }
+
+    @Test
+    void deveRetornarNomeDiretor() {
+        Professor professor = new Professor(new Escolaridade("Superior"));
+        Escola escola = new Escola(professor);
+        professor.setNome("Maria");
+
+        assertEquals("Maria", escola.getNomeDiretor());
     }
 
     @Test
@@ -52,22 +71,9 @@ class EscolaTest {
             Escola escola = new Escola();
             escola.getNomeDiretor();
             fail();
-        } catch(NullPointerException e) {
+        } catch (NullPointerException e) {
             assertEquals("Escola sem diretor", e.getMessage());
         }
-    }
-
-    @Test
-    void deveRetornarNomeDiretor() {
-        Escolaridade escolaridade = new Escolaridade();
-        escolaridade.setDescricao("Superior");
-
-        Professor professor = new Professor(escolaridade);
-        professor.setNome("Maria");
-
-        Escola escola = new Escola(professor);
-
-        assertEquals("Maria", escola.getNomeDiretor());
     }
 
 }

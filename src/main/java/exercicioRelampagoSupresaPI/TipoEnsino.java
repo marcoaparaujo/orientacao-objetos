@@ -1,17 +1,17 @@
 package exercicioRelampagoSupresaPI;
 
 public class TipoEnsino {
-    private String nomeTipoEnsino;
+    private String nome;
 
-    public TipoEnsino(String nomeTipoEnsino) {
-        this.nomeTipoEnsino = nomeTipoEnsino;
+    public TipoEnsino(String nome) {
+        this.nome = nome;
     }
 
-    public String getNomeTipoEnsino() {
-        return nomeTipoEnsino;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeTipoEnsino(String nomeTipoEnsino) {
-        this.nomeTipoEnsino = nomeTipoEnsino;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

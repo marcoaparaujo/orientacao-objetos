@@ -3,10 +3,10 @@ package exercicioRelampagoSupresaPI;
 public class Cidade {
 
     private Estado estado;
-    private String nomeCidade;
+    private String nome;
 
     public Cidade (String nomeCidade, Estado estado) {
-        this.nomeCidade = nomeCidade;
+        this.nome = nomeCidade;
         this.estado=estado;
     }
 
@@ -15,25 +15,24 @@ public class Cidade {
     }
 
     public void setEstado(Estado estado) {
-        this.estado = estado;
+        if (this.estado != null) {
+            this.estado = estado;
+        }
     }
 
-    public String getNomeCidade() {
-        return nomeCidade;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeCidade(String nomeCidade) {
-        this.nomeCidade = nomeCidade;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getNomeEstado() {
-        return this.estado.getNomeEstado();
+        if (this.estado == null) {
+            throw new NullPointerException("Cidade sem estado");
+        }
+        return this.estado.getNome();
     }
 
-    public String retornaEstadoCidade() {
-        if ( this.estado == null) {
-            throw new NullPointerException("Estado não informado!");
-        }
-        return this.estado.getNomeEstado();
-    }
 }

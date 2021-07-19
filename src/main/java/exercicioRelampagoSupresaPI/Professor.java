@@ -16,23 +16,23 @@ public class Professor extends Pessoa {
         this.contratacao = contratacao;
     }
 
-    public String getTipoEnsinoContratadoParaLecionar () {
+    public String getTipoEnsinoContratacao() {
         if (this.contratacao == null) {
-            throw new NullPointerException("Sem contratação");
+            throw new NullPointerException("Professor sem contratação");
         }
         return this.contratacao.getNomeTipoEnsino();
     }
 
     public String getNomeDiretorEscola(){
         if (this.contratacao == null) {
-            throw new NullPointerException("Sem contratação");
+            throw new NullPointerException("Professor sem contratação");
         }
         return this.contratacao.getNomeDiretor();
     }
 
     public String getNomeCoordenadorCurso(){
         if (this.contratacao == null) {
-            throw new NullPointerException("Sem contratação");
+            throw new NullPointerException("Professor sem contratação");
         }
         return this.contratacao.getNomeCoordenadorCurso();
     }

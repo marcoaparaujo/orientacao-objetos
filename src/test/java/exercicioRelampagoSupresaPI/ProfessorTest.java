@@ -10,10 +10,20 @@ class ProfessorTest {
     void deveRetonarEscolaridadeProfessor() {
         Escolaridade escolaridade = new Escolaridade();
         escolaridade.setDescricao("Mestrado");
-
         Professor professor = new Professor(escolaridade);
 
         assertEquals("Mestrado", professor.getDescricaoEscolaridade());
+    }
+
+    @Test
+    void deveRetornarExcecaoParaProfessorSemEscolaridade() {
+        try {
+            Professor professor = new Professor(null);
+            professor.getDescricaoEscolaridade();
+            fail();
+        } catch (NullPointerException e){
+            assertEquals("Pessoa sem escolaridade", e.getMessage());
+        }
     }
 
     @Test
@@ -31,8 +41,8 @@ class ProfessorTest {
             Professor professor = new Professor(new Escolaridade("Superior"));
             professor.getNomeCidade();
             fail();
-        } catch (IllegalArgumentException e){
-            assertEquals("Naturalidade obrigatoria", e.getMessage());
+        } catch (NullPointerException e){
+            assertEquals("Pessoa sem naturalidade", e.getMessage());
         }
     }
 
@@ -44,17 +54,17 @@ class ProfessorTest {
         curso.setTipoEnsino(tipoEnsino);
         professor.setContratacao(curso);
 
-        assertEquals("Ensino Fundamental", professor.getTipoEnsinoContratadoParaLecionar());
+        assertEquals("Ensino Fundamental", professor.getTipoEnsinoContratacao());
     }
 
     @Test
     void deveRetornarExcecaoParaProfessorSemContratacao() {
         try {
             Professor professor = new Professor(new Escolaridade("Superior"));
-            professor.getTipoEnsinoContratadoParaLecionar();
+            professor.getTipoEnsinoContratacao();
             fail();
         } catch (NullPointerException e){
-            assertEquals("Sem contratação", e.getMessage());
+            assertEquals("Professor sem contratação", e.getMessage());
         }
     }
 
@@ -65,8 +75,7 @@ class ProfessorTest {
         diretor.setNome("José");
         Curso curso = new Curso();
         Escola escola = new Escola(diretor);
-        curso.setEscolaCurso(escola);
-
+        curso.setEscola(escola);
         professor.setContratacao(curso);
 
         assertEquals("José", professor.getNomeDiretorEscola());
@@ -79,10 +88,9 @@ class ProfessorTest {
             professor.getNomeDiretorEscola();
             fail();
         } catch (NullPointerException e){
-            assertEquals("Sem contratação", e.getMessage());
+            assertEquals("Professor sem contratação", e.getMessage());
         }
     }
-
 
     @Test
     void deveRetornarNomeCoordenadorCurso() {
@@ -91,7 +99,6 @@ class ProfessorTest {
         coordenador.setNome("José");
         Curso curso = new Curso();
         curso.setCoordenador(coordenador);
-
         professor.setContratacao(curso);
 
         assertEquals("José", professor.getNomeCoordenadorCurso());
@@ -104,7 +111,7 @@ class ProfessorTest {
             professor.getNomeCoordenadorCurso();
             fail();
         } catch (NullPointerException e){
-            assertEquals("Sem contratação", e.getMessage());
+            assertEquals("Professor sem contratação", e.getMessage());
         }
     }
 
