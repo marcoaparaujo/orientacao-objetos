@@ -4,6 +4,7 @@ public class Curso {
 
     private Professor coordenador;
     private Escola escolaCurso;
+    private TipoEnsino tipoEnsino;
 
     public Curso(Professor coordenador) {
         this.coordenador = coordenador;
@@ -29,6 +30,21 @@ public class Curso {
 
     public void setEscolaCurso(Escola escolaCurso) {
         this.escolaCurso = escolaCurso;
+    }
+
+    public TipoEnsino getTipoEnsino() {
+        return tipoEnsino;
+    }
+
+    public void setTipoEnsino(TipoEnsino tipoEnsino) {
+        this.tipoEnsino = tipoEnsino;
+    }
+
+    public String getNomeTipoEnsino () {
+        if (this.tipoEnsino == null) {
+            throw new NullPointerException("Sem tipo de ensino");
+        }
+        return this.tipoEnsino.getNomeTipoEnsino();
     }
 
     public String getDescricaoEscolaridadeCoordenador() {

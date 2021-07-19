@@ -36,4 +36,26 @@ class ProfessorTest {
         }
     }
 
+    @Test
+    void deveRetornarTipoEnsinoProfessorLeciona() {
+        Professor professor = new Professor(new Escolaridade("Superior"));
+        Curso curso = new Curso();
+        TipoEnsino tipoEnsino = new TipoEnsino("Ensino Fundamental");
+        curso.setTipoEnsino(tipoEnsino);
+        professor.setContratacao(curso);
+
+        assertEquals("Ensino Fundamental", professor.getTipoEnsinoContratadoParaLecionar());
+    }
+
+    @Test
+    void deveRetornarExcecaoParaProfessorSemContratacao() {
+        try {
+            Professor professor = new Professor(new Escolaridade("Superior"));
+            professor.getTipoEnsinoContratadoParaLecionar();
+            fail();
+        } catch (NullPointerException e){
+            assertEquals("Sem contratação", e.getMessage());
+        }
+    }
+
 }

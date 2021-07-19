@@ -42,5 +42,26 @@ class CursoTest {
 
     }
 
+    @Test
+    public void deveRetornarNomeTipoEnsino() {
+        TipoEnsino tipoEnsino = new TipoEnsino("Ensino Superior");
+        Curso curso = new Curso();
+        curso.setTipoEnsino(tipoEnsino);
+
+        assertEquals("Ensino Superior", curso.getNomeTipoEnsino());
+    }
+
+    @Test
+    public void deveRetornarExcecaoCursoSemTipoEnsino() {
+        try {
+            Curso curso = new Curso();
+            curso.getNomeTipoEnsino();
+            fail();
+        } catch (NullPointerException e) {
+            assertEquals("Sem tipo de ensino", e.getMessage());
+        }
+
+    }
+
 
 }
