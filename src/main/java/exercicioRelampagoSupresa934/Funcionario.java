@@ -6,6 +6,13 @@ public class Funcionario {
     private Departamento alocacao;
     private Filial coordenacao;
 
+    public Funcionario(Departamento departamento) {
+        if (departamento == null) {
+            throw new IllegalArgumentException("Departamento obrigatorio");
+        }
+        this.alocacao = departamento;
+    }
+
     public Escolaridade getEscolaridade() {
         return escolaridade;
     }
@@ -19,6 +26,9 @@ public class Funcionario {
     }
 
     public void setAlocacao(Departamento alocacao) {
+        if (alocacao == null) {
+            throw new IllegalArgumentException("Departamento obrigatorio");
+        }
         this.alocacao = alocacao;
     }
 
@@ -29,4 +39,19 @@ public class Funcionario {
     public void setCoordenacao(Filial coordenacao) {
         this.coordenacao = coordenacao;
     }
+
+    public String getNomeEscolaridadeFuncionario() {
+        if (this.escolaridade == null) {
+            return "Funcionario sem escolaridade";
+        }
+        return this.escolaridade.getNome();
+    }
+
+    public String getNomePaisAlocacaoFuncionario() {
+        if (this.alocacao == null) {
+            throw new NullPointerException("Departamento obrigatorio");
+        }
+        return this.alocacao.getNomePaisDepartamento();
+    }
+
 }

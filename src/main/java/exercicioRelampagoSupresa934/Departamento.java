@@ -20,4 +20,11 @@ public class Departamento {
     public void setChefe(Funcionario chefe) {
         this.chefe = chefe;
     }
+
+    public String getNomePaisDepartamento() {
+        if (this.empresa == null) {
+            return "Departamento sem empresa";
+        }
+        return this.empresa.getNomePaisEmpresa();
+    }
 }

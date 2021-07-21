@@ -20,4 +20,11 @@ public class Empresa {
     public void setDiretor(Funcionario diretor) {
         this.diretor = diretor;
     }
+
+    public String getNomePaisEmpresa() {
+        if (this.grupo == null) {
+            return "Empresa sem grupo";
+        }
+        return this.grupo.getNomePais();
+    }
 }

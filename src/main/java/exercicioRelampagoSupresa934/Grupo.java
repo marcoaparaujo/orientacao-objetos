@@ -20,4 +20,18 @@ public class Grupo {
     public void setPresidente(Funcionario presidente) {
         this.presidente = presidente;
     }
+
+    public String getNomeEscolaridadePresidente() {
+        if (this.presidente == null) {
+            return "Grupo sem presidente";
+        }
+        return this.presidente.getNomeEscolaridadeFuncionario();
+    }
+
+    public String getNomePais() {
+        if (this.sede == null) {
+            return "Grupo sem país";
+        }
+        return this.sede.getNome();
+    }
 }
