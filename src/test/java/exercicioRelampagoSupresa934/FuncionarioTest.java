@@ -59,4 +59,22 @@ class FuncionarioTest {
     }
 
 
+    @Test
+    void deveRetornarNomeEstadoFilialCoordenacao() {
+        Funcionario funcionario = new Funcionario(new Departamento());
+        Filial filial = new Filial();
+        Cidade cidade = new Cidade(new Estado("MG"));
+        filial.setCidade(cidade);
+        funcionario.setCoordenacao(filial);
+
+        assertEquals("MG", funcionario.getNomeEstadoFilialCoordenacao());
+    }
+
+    @Test
+    void deveRetonarMensagemFuncionarioSemCoordenacao() {
+        Funcionario funcionario = new Funcionario(new Departamento());
+
+        assertEquals("Funcionario nao coordena filial", funcionario.getNomeEstadoFilialCoordenacao());
+    }
+
 }

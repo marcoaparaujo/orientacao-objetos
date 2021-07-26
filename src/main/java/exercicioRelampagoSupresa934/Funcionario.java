@@ -54,4 +54,11 @@ public class Funcionario {
         return this.alocacao.getNomePaisDepartamento();
     }
 
+    public String getNomeEstadoFilialCoordenacao() {
+        if (this.coordenacao == null) {
+            return "Funcionario nao coordena filial";
+        }
+        return this.coordenacao.getNomeEstadoFilial();
+    }
+
 }

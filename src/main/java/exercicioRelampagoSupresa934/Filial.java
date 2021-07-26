@@ -20,4 +20,11 @@ public class Filial {
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
+
+    public String getNomeEstadoFilial() {
+        if (this.cidade == null) {
+            return "Filial sem cidade";
+        }
+        return this.cidade.getNomeEstado();
+    }
 }
