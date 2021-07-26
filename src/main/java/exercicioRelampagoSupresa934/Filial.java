@@ -27,4 +27,11 @@ public class Filial {
         }
         return this.cidade.getNomeEstado();
     }
+
+    public String getNomeDiretorEmpresa() {
+        if (this.empresa == null) {
+            return "Filial sem empresa";
+        }
+        return this.empresa.getNomeDiretor();
+    }
 }

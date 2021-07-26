@@ -9,7 +9,7 @@ class GrupoTest {
     @Test
     void deveRetornarNomeEscolaridadePresidente() {
         Grupo grupo = new Grupo();
-        Funcionario presidente = new Funcionario(new Departamento());
+        Funcionario presidente = new Funcionario("Maria", new Departamento());
         Escolaridade escolaridade = new Escolaridade("Superior");
         grupo.setPresidente(presidente);
         presidente.setEscolaridade(escolaridade);

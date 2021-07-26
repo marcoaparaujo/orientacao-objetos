@@ -9,7 +9,7 @@ class FuncionarioTest {
     @Test
     void deveRetornarEscolaridadeFuncionario() {
         Escolaridade escolaridade = new Escolaridade("Superior");
-        Funcionario funcionario = new Funcionario(new Departamento());
+        Funcionario funcionario = new Funcionario("Maria", new Departamento());
         funcionario.setEscolaridade(escolaridade);
 
         assertEquals("Superior", funcionario.getNomeEscolaridadeFuncionario());
@@ -17,14 +17,14 @@ class FuncionarioTest {
 
     @Test
     void deveRetonarMensagemFuncionarioSemEscolaridade() {
-        Funcionario funcionario = new Funcionario(new Departamento());
+        Funcionario funcionario = new Funcionario("Maria", new Departamento());
         assertEquals("Funcionario sem escolaridade", funcionario.getNomeEscolaridadeFuncionario());
     }
 
     @Test
     void deveRetornarExcecaoInstanciarFuncionarioSemDepartamento() {
         try {
-            Funcionario funcionario = new Funcionario(null);
+            Funcionario funcionario = new Funcionario("Maria", null);
             fail();
         }
         catch (IllegalArgumentException e) {
@@ -35,7 +35,7 @@ class FuncionarioTest {
     @Test
     void deveRetornarExcecaoMudarDepartamentoParaNulo() {
         try {
-            Funcionario funcionario = new Funcionario(new Departamento());
+            Funcionario funcionario = new Funcionario("Maria", new Departamento());
             funcionario.setAlocacao(null);
             fail();
         }
@@ -47,7 +47,7 @@ class FuncionarioTest {
     @Test
     void deveRetonarNomePaisAlocacaoFuncionario() {
         Departamento departamento = new Departamento();
-        Funcionario funcionario = new Funcionario(departamento);
+        Funcionario funcionario = new Funcionario("Maria", departamento);
         Empresa empresa = new Empresa();
         Grupo grupo = new Grupo();
         Pais pais = new Pais("Brasil");
@@ -61,7 +61,7 @@ class FuncionarioTest {
 
     @Test
     void deveRetornarNomeEstadoFilialCoordenacao() {
-        Funcionario funcionario = new Funcionario(new Departamento());
+        Funcionario funcionario = new Funcionario("Maria", new Departamento());
         Filial filial = new Filial();
         Cidade cidade = new Cidade(new Estado("MG"));
         filial.setCidade(cidade);
@@ -72,7 +72,7 @@ class FuncionarioTest {
 
     @Test
     void deveRetonarMensagemFuncionarioSemCoordenacao() {
-        Funcionario funcionario = new Funcionario(new Departamento());
+        Funcionario funcionario = new Funcionario("Maria", new Departamento());
 
         assertEquals("Funcionario nao coordena filial", funcionario.getNomeEstadoFilialCoordenacao());
     }

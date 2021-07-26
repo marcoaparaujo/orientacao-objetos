@@ -24,4 +24,20 @@ class EmpresaTest {
         assertEquals("Empresa sem grupo", empresa.getNomePaisEmpresa());
     }
 
+    @Test
+    void deveRetornarNomeDiretor() {
+        Empresa empresa = new Empresa();
+        Funcionario funcionario = new Funcionario("Maria", new Departamento());
+        empresa.setDiretor(funcionario);
+
+        assertEquals("Maria", empresa.getNomeDiretor());
+    }
+
+    @Test
+    void deveRetonarMensagemEmpresaSemDiretor() {
+        Empresa empresa = new Empresa();
+
+        assertEquals("Empresa sem diretor", empresa.getNomeDiretor());
+    }
+
 }

@@ -31,7 +31,7 @@ class DepartamentoTest {
     void deveRetonarNomeEscolaridadeChefe() {
         Departamento departamento = new Departamento();
         Escolaridade escolaridade = new Escolaridade("Mestre");
-        Funcionario funcionario = new Funcionario(departamento);
+        Funcionario funcionario = new Funcionario("Maria", departamento);
         funcionario.setEscolaridade(escolaridade);
         departamento.setChefe(funcionario);
 

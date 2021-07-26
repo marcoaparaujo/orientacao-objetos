@@ -27,4 +27,11 @@ public class Empresa {
         }
         return this.grupo.getNomePais();
     }
+
+    public String getNomeDiretor() {
+        if (this.diretor == null) {
+            return "Empresa sem diretor";
+        }
+        return this.diretor.getNome();
+    }
 }

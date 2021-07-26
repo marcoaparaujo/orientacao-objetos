@@ -22,4 +22,22 @@ class FilialTest {
         assertEquals("Filial sem cidade", filial.getNomeEstadoFilial());
     }
 
+    @Test
+    void deveRetonarNomeDiretorEmpresaFilial() {
+        Funcionario funcionario = new Funcionario("Maria", new Departamento());
+        Empresa empresa = new Empresa();
+        empresa.setDiretor(funcionario);
+        Filial filial = new Filial();
+        filial.setEmpresa(empresa);
+
+        assertEquals("Maria", filial.getNomeDiretorEmpresa());
+    }
+
+    @Test
+    void deveRetonarMensagemFilialSemEmpresa() {
+        Filial filial = new Filial();
+
+        assertEquals("Filial sem empresa", filial.getNomeDiretorEmpresa());
+    }
+
 }

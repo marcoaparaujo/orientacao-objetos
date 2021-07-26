@@ -2,15 +2,26 @@ package exercicioRelampagoSupresa934;
 
 public class Funcionario {
 
+    private String nome;
+
     private Escolaridade escolaridade;
     private Departamento alocacao;
     private Filial coordenacao;
 
-    public Funcionario(Departamento departamento) {
+    public Funcionario(String nome, Departamento departamento) {
+        this.nome = nome;
         if (departamento == null) {
             throw new IllegalArgumentException("Departamento obrigatorio");
         }
         this.alocacao = departamento;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public Escolaridade getEscolaridade() {
