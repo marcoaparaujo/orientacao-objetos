@@ -1,5 +1,6 @@
 package exercicioRelampagoSupresa934;
 
+import com.sun.xml.internal.rngom.digested.DPattern;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -26,5 +27,22 @@ class DepartamentoTest {
         assertEquals("Departamento sem empresa", departamento.getNomePaisDepartamento());
     }
 
+    @Test
+    void deveRetonarNomeEscolaridadeChefe() {
+        Departamento departamento = new Departamento();
+        Escolaridade escolaridade = new Escolaridade("Mestre");
+        Funcionario funcionario = new Funcionario(departamento);
+        funcionario.setEscolaridade(escolaridade);
+        departamento.setChefe(funcionario);
+
+        assertEquals("Mestre", departamento.getNomeEscolaridadeChefe());
+    }
+
+    @Test
+    void deveRetornarMensagemDepartamentoSemChefe() {
+        Departamento departamento = new Departamento();
+
+        assertEquals("Departamento sem chefe", departamento.getNomeEscolaridadeChefe());
+    }
 
 }

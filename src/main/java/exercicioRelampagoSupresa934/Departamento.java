@@ -27,4 +27,11 @@ public class Departamento {
         }
         return this.empresa.getNomePaisEmpresa();
     }
+
+    public String getNomeEscolaridadeChefe() {
+        if (this.chefe == null) {
+            return "Departamento sem chefe";
+        }
+        return this.chefe.getNomeEscolaridadeFuncionario();
+    }
 }
