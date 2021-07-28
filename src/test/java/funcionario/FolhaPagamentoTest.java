@@ -3,6 +3,7 @@ package funcionario;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -31,4 +32,5 @@ class FolhaPagamentoTest {
 
         assertEquals(6000.0f, FolhaPagamento.calcularTotalFolhaPagamento(lista));
     }
+
 }
