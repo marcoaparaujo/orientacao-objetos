@@ -35,14 +35,14 @@ class TurmaTest {
     }
 
     @Test
-    void deveRetornarListaVazia() {
+    void deveRetornarListaVaziaNomesAlunos() {
         Turma turma = new Turma();
 
         assertEquals(new ArrayList<String>(), turma.getNomesAlunos());
     }
 
     @Test
-    void deveRetornarListaComTamanhoZero() {
+    void deveRetornarListaNomesAlunosComTamanhoZero() {
         Turma turma = new Turma();
 
         assertEquals(0, turma.getNomesAlunos().size());
