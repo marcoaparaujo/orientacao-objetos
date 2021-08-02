@@ -7,8 +7,13 @@ public class Turma {
 
     private Professor professor;
     private List<Aluno> alunos;
+    private Disciplina disciplina;
 
-    public Turma() {
+    public Turma(Disciplina disciplina) {
+        if (disciplina == null) {
+            throw new IllegalArgumentException("Disciplina obrigatória");
+        }
+        this.disciplina = disciplina;
         this.alunos = new ArrayList<Aluno>();
     }
 
@@ -18,6 +23,24 @@ public class Turma {
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
+    }
+
+    public Disciplina getDisciplina() {
+        return this.disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        if (disciplina == null) {
+            throw new IllegalArgumentException("Disciplina obrigatória");
+        }
+        this.disciplina = disciplina;
+    }
+
+    public String getNomeDisciplina() {
+        if (this.disciplina == null) {
+            throw new NullPointerException("Turma sem disciplina");
+        }
+        return this.disciplina.getNome();
     }
 
     public void matricular(Aluno aluno) {
@@ -37,6 +60,14 @@ public class Turma {
            return "Turma sem professor";
         }
         return this.professor.getNome();
+    }
+
+    public boolean verificarAlunoTurma(Aluno aluno) {
+        return this.alunos.contains(aluno);
+    }
+
+    public boolean excluirAluno(Aluno aluno) {
+        return this.alunos.remove(aluno);
     }
 
 }

@@ -7,13 +7,19 @@ import java.util.List;
 public class Curso {
 
     private List<Turma> turmas;
+    private List<Aluno> alunos;
 
     public Curso() {
         this.turmas = new ArrayList<Turma>();
+        this.alunos = new ArrayList<Aluno>();
     }
 
     public void adicionarTurma(Turma turma) {
         this.turmas.add(turma);
+    }
+
+    public void adicionarAluno(Aluno aluno) {
+        this.alunos.add(aluno);
     }
 
     public List<String> getNomesProfessores() {
@@ -46,4 +52,53 @@ public class Curso {
         return alunos;
     }
 
+    public List<String> getNomesAlunosCurso() {
+        List<String> alunos = new ArrayList<String>();
+        for (Aluno aluno : this.alunos) {
+            alunos.add(aluno.getNome());
+        }
+        return alunos;
+    }
+
+    public List<String> getNomesDisciplinasTurmas() {
+        List<String> disciplinas = new ArrayList<String>();
+        for (Turma turma : this.turmas) {
+            disciplinas.add(turma.getNomeDisciplina());
+        }
+        return disciplinas;
+    }
+
+    public boolean verificarAlunoCurso(Aluno aluno) {
+        return this.alunos.contains(aluno);
+    }
+
+    public boolean verificarTurmaCurso(Turma turma) {
+        return this.turmas.contains(turma);
+    }
+
+    public boolean excluirTurma(Turma turma) {
+        return this.turmas.remove(turma);
+    }
+
+    public boolean excluirAluno(Aluno aluno) {
+        return this.alunos.remove(aluno);
+    }
+
+    public boolean excluirAluno(String nome) {
+        for (Aluno aluno : alunos) {
+            if (aluno.getNome().equals(nome)) {
+                return this.alunos.remove(aluno);
+            }
+        }
+        return false;
+    }
+
+    public Aluno obterAluno(String nome) {
+        for (Aluno aluno : alunos) {
+            if (aluno.getNome().equals(nome)) {
+                return aluno;
+            }
+        }
+        return null;
+    }
 }
