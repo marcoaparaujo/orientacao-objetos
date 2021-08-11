@@ -23,7 +23,7 @@ class CursoTest {
             curso.getDescricaoEscolaridadeCoordenador();
             fail();
         } catch (NullPointerException e) {
-            assertEquals("Curso sem coordenador", e.getMessage());
+            assertEquals("relacionamentoBidirecional1para1.Curso sem coordenador", e.getMessage());
         }
     }
 
@@ -44,7 +44,7 @@ class CursoTest {
             curso.retornaEstadoCurso();
             fail();
         } catch (NullPointerException e) {
-            assertEquals("Curso sem escola", e.getMessage());
+            assertEquals("relacionamentoBidirecional1para1.Curso sem escola", e.getMessage());
         }
     }
 
@@ -64,7 +64,7 @@ class CursoTest {
             curso.getNomeTipoEnsino();
             fail();
         } catch (NullPointerException e) {
-            assertEquals("Curso sem tipo de ensino", e.getMessage());
+            assertEquals("relacionamentoBidirecional1para1.Curso sem tipo de ensino", e.getMessage());
         }
     }
 
@@ -85,7 +85,7 @@ class CursoTest {
             curso.getNomeCoordenadorCurso();
             fail();
         } catch (NullPointerException e) {
-            assertEquals("Curso sem coordenador", e.getMessage());
+            assertEquals("relacionamentoBidirecional1para1.Curso sem coordenador", e.getMessage());
         }
     }
 
@@ -107,7 +107,7 @@ class CursoTest {
             curso.getNomeDiretor();
             fail();
         } catch (NullPointerException e) {
-            assertEquals("Curso sem escola", e.getMessage());
+            assertEquals("relacionamentoBidirecional1para1.Curso sem escola", e.getMessage());
         }
     }
 

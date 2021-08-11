@@ -41,35 +41,35 @@ public class Curso {
 
     public String getNomeTipoEnsino () {
         if (this.tipoEnsino == null) {
-            throw new NullPointerException("Curso sem tipo de ensino");
+            throw new NullPointerException("relacionamentoBidirecional1para1.Curso sem tipo de ensino");
         }
         return this.tipoEnsino.getNome();
     }
 
     public String getDescricaoEscolaridadeCoordenador() {
         if (this.coordenador == null) {
-            throw new NullPointerException("Curso sem coordenador");
+            throw new NullPointerException("relacionamentoBidirecional1para1.Curso sem coordenador");
         }
         return coordenador.getDescricaoEscolaridade();
     }
 
     public String retornaEstadoCurso() {
         if (this.escola == null) {
-            throw new NullPointerException("Curso sem escola");
+            throw new NullPointerException("relacionamentoBidirecional1para1.Curso sem escola");
         }
         return this.escola.getEstadoEscola();
     }
 
     public String getNomeCoordenadorCurso() {
         if (this.coordenador == null) {
-            throw new NullPointerException("Curso sem coordenador");
+            throw new NullPointerException("relacionamentoBidirecional1para1.Curso sem coordenador");
         }
         return this.coordenador.getNome();
     }
 
     public String getNomeDiretor(){
         if (this.escola == null){
-            throw new NullPointerException("Curso sem escola");
+            throw new NullPointerException("relacionamentoBidirecional1para1.Curso sem escola");
         }
         return this.escola.getNomeDiretor();
     }
