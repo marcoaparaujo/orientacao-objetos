@@ -40,4 +40,32 @@ public class Turma {
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
     }
+
+    public void matricular(Aluno aluno) {
+        if (aluno == null) {
+            throw new NullPointerException("Aluno deve ser informado");
+        }
+        if (!this.alunos.contains(aluno)) {
+            this.alunos.add(aluno);
+        }
+        if (!aluno.verificarMatriculaTurma(this)) {
+            aluno.matricular(this);
+        }
+    }
+
+    public void desmatricular(Aluno aluno) {
+        if (aluno == null) {
+            throw new NullPointerException("Aluno deve ser informado");
+        }
+        if (this.alunos.contains(aluno)) {
+            this.alunos.remove(aluno);
+        }
+        if (aluno.verificarMatriculaTurma(this)) {
+            aluno.desmatricular(this);
+        }
+    }
+
+    public boolean verificarMatriculaAluno(Aluno aluno) {
+        return this.alunos.contains(aluno);
+    }
 }
