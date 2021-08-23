@@ -1,6 +1,6 @@
-package funcionario;
+package salario;
 
-public class FuncionarioHorista extends Funcionario {
+public class FuncionarioHorista implements Funcionario {
 
     private float valorHora;
     private int numDias;
@@ -34,12 +34,4 @@ public class FuncionarioHorista extends Funcionario {
         return this.numDias * this.numHorasDia * this.valorHora;
     }
 
-    @Override
-    public float calcularValeRefeicao() {
-        return 600.0f;
-    }
-
-    public float calcularValeRefeicao(float percentual) {
-        return 600.0f * (1 + (percentual/100));
-    }
 }

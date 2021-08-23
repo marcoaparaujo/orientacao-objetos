@@ -20,5 +20,10 @@ class FuncionarioMensalistaTest {
         assertEquals(14000.0f, funcionarioMensalista.calcularSalario());
     }
 
+    @Test
+    void deveCalcularValeRefeicao() {
+        FuncionarioMensalista funcionarioMensalista = new FuncionarioMensalista();
+        assertEquals(500.0f, funcionarioMensalista.calcularValeRefeicao());
+    }
 
 }

@@ -13,4 +13,8 @@ public abstract class Funcionario {
     }
 
     public abstract float calcularSalario();
+
+    public float calcularValeRefeicao() {
+        return 500.0f;
+    }
 }
