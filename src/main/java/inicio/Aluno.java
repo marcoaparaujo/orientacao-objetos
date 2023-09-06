@@ -31,7 +31,7 @@ public class Aluno {
     }
 
     public String matricular() {
-        return "inicio.Aluno matriculado: " + this.nome + " " + this.sobrenome;
+        return "Aluno matriculado: " + this.nome + " " + this.sobrenome;
     }
 
 }

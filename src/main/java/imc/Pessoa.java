@@ -7,11 +7,14 @@ public class Pessoa {
 
     public String getSexo ()
     {
-        return sexo;
+        return this.sexo;
     }
 
     public void setSexo (String sexo)
     {
+        if (!(sexo.equals("F") || sexo.equals("M"))) {
+            throw new IllegalArgumentException("Sexo invalido");
+        }
         this.sexo = sexo;
     }
 
@@ -22,6 +25,9 @@ public class Pessoa {
 
     public void setPeso (float peso)
     {
+        if (peso <= 0.0f) {
+            throw new IllegalArgumentException("Peso invalido");
+        }
         this.peso = peso;
     }
 
@@ -32,26 +38,30 @@ public class Pessoa {
 
     public void setAltura (float altura)
     {
+        if (altura <= 0) {
+            throw new IllegalArgumentException("Altura invalida");
+        }
         this.altura = altura;
     }
 
     public String calcularImc () {
 
+        String resposta;
         float imc = this.peso / (this.altura * this.altura);
         if (sexo.equals("F")) {
             if (imc < 19.1f) {
-                return "abaixo do peso";
+                resposta = "abaixo do peso";
             } else {
                 if (imc < 25.8f) {
-                    return "no peso normal";
+                    resposta = "no peso normal";
                 } else {
                     if (imc < 27.3f) {
-                        return "marginalmente acima do peso";
+                        resposta = "marginalmente acima do peso";
                     } else {
                         if (imc < 32.3f) {
-                            return "acima do peso ideal";
+                            resposta = "acima do peso ideal";
                         } else {
-                            return "obeso";
+                            resposta = "obeso";
                         }
                     }
                 }
@@ -59,27 +69,28 @@ public class Pessoa {
         }
         else {
             if (imc < 20.7f) {
-                return "abaixo do peso";
+                resposta = "abaixo do peso";
             }
             else {
                 if (imc < 26.4f) {
-                    return "no peso normal";
+                    resposta = "no peso normal";
                 }
                 else {
                     if (imc < 27.8f) {
-                        return "marginalmente acima do peso";
+                        resposta = "marginalmente acima do peso";
                     }
                     else {
                         if (imc < 31.1f) {
-                            return "acima do peso ideal";
+                            resposta = "acima do peso ideal";
                         }
                         else {
-                            return "obeso";
+                            resposta = "obeso";
                         }
                     }
                 }
             }
         }
+        return resposta;
     }
 }
 

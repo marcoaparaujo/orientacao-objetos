@@ -14,4 +14,8 @@ public class BD {
     public static int getQuantidadeRegistros() {
         return registros.size();
     }
+
+    public static void zerarBD() {
+        registros.clear();
+    }
 }
