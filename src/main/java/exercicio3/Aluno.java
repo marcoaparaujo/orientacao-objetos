@@ -19,6 +19,9 @@ public abstract class Aluno extends Pessoa {
     }
 
     public void setNota1(int nota1) {
+        if (nota1 < 0 || nota1 > 100) {
+            throw new IllegalArgumentException("Nota invalida");
+        }
         this.nota1 = nota1;
     }
 
@@ -27,6 +30,9 @@ public abstract class Aluno extends Pessoa {
     }
 
     public void setNota2(int nota2) {
+        if (nota2 < 0 || nota2 > 100) {
+            throw new IllegalArgumentException("Nota invalida");
+        }
         this.nota2 = nota2;
     }
 
