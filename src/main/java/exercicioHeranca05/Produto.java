@@ -7,6 +7,10 @@ public abstract class Produto {
     private float quantidadeEstoque;
     private float quantidadeComprada;
 
+    public Produto() {
+        this.quantidadeEstoque = 0.0f;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -48,6 +52,6 @@ public abstract class Produto {
     }
 
     public float calcularPreco() {
-        return this.getPrecoUnitario() * this.getQuantidadeComprada() - this.getDesconto();
+        return this.precoUnitario * this.quantidadeComprada - this.getDesconto();
     }
 }
